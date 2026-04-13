@@ -143,16 +143,118 @@ Guillaume Dalle (ENPC)
 </div>
 
   <p class="date">2026-04-14</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/optimization-as-subroutine" id="/toc-optimization-as-subroutine">Optimization as subroutine</a></li>
+<li><a href="#/shortest-path-algorithms" id="/toc-shortest-path-algorithms">Shortest path algorithms</a></li>
+<li><a href="#/linear-algebra-for-parallel-shortest-paths" id="/toc-linear-algebra-for-parallel-shortest-paths">Linear algebra for parallel shortest paths</a></li>
+<li><a href="#/preprocessing-for-parallel-shortest-paths" id="/toc-preprocessing-for-parallel-shortest-paths">Preprocessing for parallel shortest paths</a></li>
+<li><a href="#/challenges-ahead" id="/toc-challenges-ahead">Challenges ahead</a></li>
+</ul>
+</nav>
 </section>
-<section class="slide level2">
-
-
+<section>
+<section id="optimization-as-subroutine" class="title-slide slide level1 center">
+<h1>Optimization as subroutine</h1>
 
 </section>
+<section id="multi-agent-pathfinding" class="slide level2">
+<h2>Multi-agent pathfinding</h2>
+</section>
+<section id="traffic-equilibrium" class="slide level2">
+<h2>Traffic equilibrium</h2>
+</section>
+<section id="decision-focused-learning" class="slide level2">
+<h2>Decision-focused learning</h2>
+</section>
+<section id="bilevel-programming" class="slide level2">
+<h2>Bilevel programming</h2>
+</section>
+<section id="common-aspects-of-subroutines" class="slide level2">
+<h2>Common aspects of subroutines</h2>
+</section>
+<section id="smarter-execution" class="slide level2">
+<h2>Smarter execution</h2>
+</section></section>
+<section>
+<section id="shortest-path-algorithms" class="title-slide slide level1 center">
+<h1>Shortest path algorithms</h1>
+
+</section>
+<section id="bellman-ford" class="slide level2">
+<h2>Bellman-Ford</h2>
+</section>
+<section id="dijkstra" class="slide level2">
+<h2>Dijkstra</h2>
+</section>
+<section id="good-on-cpu-bad-on-gpu" class="slide level2">
+<h2>Good on CPU, bad on GPU</h2>
+</section></section>
+<section>
+<section id="linear-algebra-for-parallel-shortest-paths" class="title-slide slide level1 center">
+<h1>Linear algebra for parallel shortest paths</h1>
+
+</section>
+<section id="graphs-are-matrices" class="slide level2">
+<h2>Graphs are matrices</h2>
+</section>
+<section id="neighborhoods-are-multiplications" class="slide level2">
+<h2>Neighborhoods are multiplications</h2>
+</section>
+<section id="the-graphblas-standard" class="slide level2">
+<h2>The GraphBLAS standard</h2>
+</section>
+<section id="sparse-matrix-formats" class="slide level2">
+<h2>Sparse matrix formats</h2>
+</section>
+<section id="sparse-mat-vec-product-on-gpu" class="slide level2">
+<h2>Sparse mat-vec product on GPU</h2>
+</section></section>
+<section>
+<section id="preprocessing-for-parallel-shortest-paths" class="title-slide slide level1 center">
+<h1>Preprocessing for parallel shortest paths</h1>
+
+</section>
+<section id="one-graph-many-queries" class="slide level2">
+<h2>One graph, many queries</h2>
+</section>
+<section id="contraction-hierarchies" class="slide level2">
+<h2>Contraction hierarchies</h2>
+</section>
+<section id="phast" class="slide level2">
+<h2>PHAST</h2>
+</section>
+<section id="customizable-contraction-hierarchies" class="slide level2">
+<h2>Customizable contraction hierarchies</h2>
+</section>
+<section id="other-types-of-networks" class="slide level2">
+<h2>Other types of networks</h2>
+</section></section>
+<section>
+<section id="challenges-ahead" class="title-slide slide level1 center">
+<h1>Challenges ahead</h1>
+
+</section>
+<section id="algorithmic-tradeoffs" class="slide level2">
+<h2>Algorithmic tradeoffs</h2>
+</section>
+<section id="hardware-agnostic-code" class="slide level2">
+<h2>Hardware-agnostic code</h2>
+</section>
+<section id="role-of-llms" class="slide level2">
+<h2>Role of LLMs</h2>
+</section>
+<section id="software-funding-and-maintenance" class="slide level2">
+<h2>Software funding and maintenance</h2>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-
+<p>Accelerating graph algorithms</p>
 </div>
 </div></div>
 
@@ -205,7 +307,7 @@ Guillaume Dalle (ENPC)
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

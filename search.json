@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "index.html#multi-agent-pathfinding",
+    "href": "index.html#multi-agent-pathfinding",
+    "title": "Accelerating graph algorithms",
+    "section": "Multi-agent pathfinding",
+    "text": "Multi-agent pathfinding"
+  },
+  {
+    "objectID": "index.html#traffic-equilibrium",
+    "href": "index.html#traffic-equilibrium",
+    "title": "Accelerating graph algorithms",
+    "section": "Traffic equilibrium",
+    "text": "Traffic equilibrium"
+  },
+  {
+    "objectID": "index.html#decision-focused-learning",
+    "href": "index.html#decision-focused-learning",
+    "title": "Accelerating graph algorithms",
+    "section": "Decision-focused learning",
+    "text": "Decision-focused learning"
+  },
+  {
+    "objectID": "index.html#bilevel-programming",
+    "href": "index.html#bilevel-programming",
+    "title": "Accelerating graph algorithms",
+    "section": "Bilevel programming",
+    "text": "Bilevel programming"
+  },
+  {
+    "objectID": "index.html#common-aspects-of-subroutines",
+    "href": "index.html#common-aspects-of-subroutines",
+    "title": "Accelerating graph algorithms",
+    "section": "Common aspects of subroutines",
+    "text": "Common aspects of subroutines"
+  },
+  {
+    "objectID": "index.html#smarter-execution",
+    "href": "index.html#smarter-execution",
+    "title": "Accelerating graph algorithms",
+    "section": "Smarter execution",
+    "text": "Smarter execution"
+  },
+  {
+    "objectID": "index.html#bellman-ford",
+    "href": "index.html#bellman-ford",
+    "title": "Accelerating graph algorithms",
+    "section": "Bellman-Ford",
+    "text": "Bellman-Ford"
+  },
+  {
+    "objectID": "index.html#dijkstra",
+    "href": "index.html#dijkstra",
+    "title": "Accelerating graph algorithms",
+    "section": "Dijkstra",
+    "text": "Dijkstra"
+  },
+  {
+    "objectID": "index.html#good-on-cpu-bad-on-gpu",
+    "href": "index.html#good-on-cpu-bad-on-gpu",
+    "title": "Accelerating graph algorithms",
+    "section": "Good on CPU, bad on GPU",
+    "text": "Good on CPU, bad on GPU"
+  },
+  {
+    "objectID": "index.html#graphs-are-matrices",
+    "href": "index.html#graphs-are-matrices",
+    "title": "Accelerating graph algorithms",
+    "section": "Graphs are matrices",
+    "text": "Graphs are matrices"
+  },
+  {
+    "objectID": "index.html#neighborhoods-are-multiplications",
+    "href": "index.html#neighborhoods-are-multiplications",
+    "title": "Accelerating graph algorithms",
+    "section": "Neighborhoods are multiplications",
+    "text": "Neighborhoods are multiplications"
+  },
+  {
+    "objectID": "index.html#the-graphblas-standard",
+    "href": "index.html#the-graphblas-standard",
+    "title": "Accelerating graph algorithms",
+    "section": "The GraphBLAS standard",
+    "text": "The GraphBLAS standard"
+  },
+  {
+    "objectID": "index.html#sparse-matrix-formats",
+    "href": "index.html#sparse-matrix-formats",
+    "title": "Accelerating graph algorithms",
+    "section": "Sparse matrix formats",
+    "text": "Sparse matrix formats"
+  },
+  {
+    "objectID": "index.html#sparse-mat-vec-product-on-gpu",
+    "href": "index.html#sparse-mat-vec-product-on-gpu",
+    "title": "Accelerating graph algorithms",
+    "section": "Sparse mat-vec product on GPU",
+    "text": "Sparse mat-vec product on GPU"
+  },
+  {
+    "objectID": "index.html#one-graph-many-queries",
+    "href": "index.html#one-graph-many-queries",
+    "title": "Accelerating graph algorithms",
+    "section": "One graph, many queries",
+    "text": "One graph, many queries"
+  },
+  {
+    "objectID": "index.html#contraction-hierarchies",
+    "href": "index.html#contraction-hierarchies",
+    "title": "Accelerating graph algorithms",
+    "section": "Contraction hierarchies",
+    "text": "Contraction hierarchies"
+  },
+  {
+    "objectID": "index.html#phast",
+    "href": "index.html#phast",
+    "title": "Accelerating graph algorithms",
+    "section": "PHAST",
+    "text": "PHAST"
+  },
+  {
+    "objectID": "index.html#customizable-contraction-hierarchies",
+    "href": "index.html#customizable-contraction-hierarchies",
+    "title": "Accelerating graph algorithms",
+    "section": "Customizable contraction hierarchies",
+    "text": "Customizable contraction hierarchies"
+  },
+  {
+    "objectID": "index.html#other-types-of-networks",
+    "href": "index.html#other-types-of-networks",
+    "title": "Accelerating graph algorithms",
+    "section": "Other types of networks",
+    "text": "Other types of networks"
+  },
+  {
+    "objectID": "index.html#algorithmic-tradeoffs",
+    "href": "index.html#algorithmic-tradeoffs",
+    "title": "Accelerating graph algorithms",
+    "section": "Algorithmic tradeoffs",
+    "text": "Algorithmic tradeoffs"
+  },
+  {
+    "objectID": "index.html#hardware-agnostic-code",
+    "href": "index.html#hardware-agnostic-code",
+    "title": "Accelerating graph algorithms",
+    "section": "Hardware-agnostic code",
+    "text": "Hardware-agnostic code"
+  },
+  {
+    "objectID": "index.html#role-of-llms",
+    "href": "index.html#role-of-llms",
+    "title": "Accelerating graph algorithms",
+    "section": "Role of LLMs",
+    "text": "Role of LLMs"
+  },
+  {
+    "objectID": "index.html#software-funding-and-maintenance",
+    "href": "index.html#software-funding-and-maintenance",
+    "title": "Accelerating graph algorithms",
+    "section": "Software funding and maintenance",
+    "text": "Software funding and maintenance"
+  }
+]
