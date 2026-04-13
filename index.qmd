@@ -1,0 +1,8 @@
+---
+title: "Accelerating graph algorithms"
+subtitle: "Califrais workshop"
+author: "Guillaume Dalle (ENPC)"
+date: 2026/04/14
+format: revealjs
+---
+
