@@ -3,6 +3,66 @@ title: "Accelerating graph algorithms"
 subtitle: "Califrais workshop"
 author: "Guillaume Dalle (ENPC)"
 date: 2026/04/14
-format: revealjs
+format:
+    revealjs:
+        slide-number: true
+        footer: "Accelerating graph algorithms"
+toc: true
+toc-depth: 1
 ---
 
+# Optimization as subroutine
+
+## Multi-agent pathfinding
+
+## Traffic equilibrium
+
+## Decision-focused learning
+
+## Bilevel programming
+
+## Common aspects of subroutines
+
+## Smarter execution
+
+# Shortest path algorithms
+
+## Bellman-Ford
+
+## Dijkstra
+
+## Good on CPU, bad on GPU
+
+# Linear algebra for parallel shortest paths
+
+## Graphs are matrices
+
+## Neighborhoods are multiplications
+
+## The GraphBLAS standard
+
+## Sparse matrix formats
+
+## Sparse mat-vec product on GPU
+
+# Preprocessing for parallel shortest paths
+
+## One graph, many queries
+
+## Contraction hierarchies
+
+## PHAST
+
+## Customizable contraction hierarchies
+
+## Other types of networks
+
+# Challenges ahead
+
+## Algorithmic tradeoffs
+
+## Hardware-agnostic code
+
+## Role of LLMs
+
+## Software funding and maintenance
