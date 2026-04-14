@@ -32,7 +32,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -49,6 +68,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -147,37 +167,78 @@ Guillaume Dalle (ENPC)
 <nav role="doc-toc"> 
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/optimization-as-subroutine" id="/toc-optimization-as-subroutine">Optimization as subroutine</a></li>
+<li><a href="#/optimization-as-a-subroutine" id="/toc-optimization-as-a-subroutine">Optimization as a subroutine</a></li>
 <li><a href="#/shortest-path-algorithms" id="/toc-shortest-path-algorithms">Shortest path algorithms</a></li>
-<li><a href="#/linear-algebra-for-parallel-shortest-paths" id="/toc-linear-algebra-for-parallel-shortest-paths">Linear algebra for parallel shortest paths</a></li>
+<li><a href="#/sparse-linear-algebra-for-parallel-shortest-paths" id="/toc-sparse-linear-algebra-for-parallel-shortest-paths">Sparse linear algebra for parallel shortest paths</a></li>
 <li><a href="#/preprocessing-for-parallel-shortest-paths" id="/toc-preprocessing-for-parallel-shortest-paths">Preprocessing for parallel shortest paths</a></li>
 <li><a href="#/challenges-ahead" id="/toc-challenges-ahead">Challenges ahead</a></li>
 </ul>
 </nav>
 </section>
+<section id="a-little-about-me" class="slide level2">
+<h2>A little about me</h2>
+<div class="columns">
+<div class="column">
+<h3 id="cv">CV</h3>
+<ul>
+<li>2019-2022: PhD at ENPC</li>
+<li>2022: visiting student at MIT</li>
+<li>2023-2024: postdoc at EPFL</li>
+<li>2025-: researcher at ENPC</li>
+</ul>
+</div><div class="column">
+<h3 id="research-topics">Research topics</h3>
+<ul>
+<li>Operations research</li>
+<li>Machine learning</li>
+<li>High-performance computing</li>
+</ul>
+</div></div>
+<div class="footer">
+<p>Slides available at <a href="https://gdalle.github.io/CalifraisWorkshop2026/">gdalle.github.io/CalifraisWorkshop2026</a></p>
+</div>
+</section>
 <section>
-<section id="optimization-as-subroutine" class="title-slide slide level1 center">
-<h1>Optimization as subroutine</h1>
+<section id="optimization-as-a-subroutine" class="title-slide slide level1 center">
+<h1>Optimization as a subroutine</h1>
 
 </section>
 <section id="multi-agent-pathfinding" class="slide level2">
 <h2>Multi-agent pathfinding</h2>
-</section>
+
+<img data-src="https://i.imgur.com/9cNtWjs.gif" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="traffic-equilibrium" class="slide level2">
 <h2>Traffic equilibrium</h2>
+<iframe title="vimeo-player" src="https://player.vimeo.com/video/319314052?h=d8b5861303" width="840" height="460" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen="">
+</iframe>
 </section>
 <section id="decision-focused-learning" class="slide level2">
 <h2>Decision-focused learning</h2>
-</section>
+
+<img data-src="img/dfl.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="bilevel-programming" class="slide level2">
 <h2>Bilevel programming</h2>
+<p><span class="math display">\[
+\begin{aligned}
+\min_{x, y} ~ &amp; F(x, y) \\
+\mathrm{s.t.} ~ &amp; G(x, y) \geq 0 \\
+&amp; y \in \arg\min_y ~\{f(x, y): g(x, y) \geq 0\}
+\end{aligned}
+\]</span></p>
 </section>
 <section id="common-aspects-of-subroutines" class="slide level2">
 <h2>Common aspects of subroutines</h2>
+<ul>
+<li>Executed many times in parallel</li>
+<li>Executed many times in a sequence</li>
+<li>Executed many many times on the same instance</li>
+<li>High precision is not crucial</li>
+</ul>
 </section>
-<section id="smarter-execution" class="slide level2">
-<h2>Smarter execution</h2>
-</section></section>
+<section id="potential-for-parallelism" class="slide level2">
+<h2>Potential for parallelism</h2>
+
+<img data-src="img/gpu.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
 <section id="shortest-path-algorithms" class="title-slide slide level1 center">
 <h1>Shortest path algorithms</h1>
@@ -185,33 +246,94 @@ Guillaume Dalle (ENPC)
 </section>
 <section id="bellman-ford" class="slide level2">
 <h2>Bellman-Ford</h2>
+<ul>
+<li>Dynamic programming: update the distance estimate from <span class="math inline">\(s\)</span> to <span class="math inline">\(v\)</span> using at most <span class="math inline">\(k\)</span> steps <span class="math display">\[
+d_k(s, v) = \min_{u \in N(v)} \{d_{k-1}(s, u) + w(u, v)\}
+\]</span></li>
+<li>Complexity: <span class="math inline">\(O(E V)\)</span> (slow!).</li>
+</ul>
 </section>
 <section id="dijkstra" class="slide level2">
 <h2>Dijkstra</h2>
+<ul>
+<li>Dynamic programming: update the distance estimate from <span class="math inline">\(s\)</span> to <span class="math inline">\(v\)</span> from closest to furthest vertex.</li>
+<li>Uses a priority queue (or heap) to keep track.</li>
+<li>Complexity: <span class="math inline">\(O(E + V \log V)\)</span> (fast!)</li>
+</ul>
+</section>
+<section id="a" class="slide level2">
+<h2>A*</h2>
+<ul>
+<li>Same as Dijkstra, but change the priorization: from most promising to least promising vertex.</li>
+<li>Complexity: depends on the chosen heuristic.</li>
+</ul>
 </section>
 <section id="good-on-cpu-bad-on-gpu" class="slide level2">
 <h2>Good on CPU, bad on GPU</h2>
+<ul>
+<li>Dijkstra and A* are heavily sequential</li>
+<li>They make use of complex storage structures</li>
+<li>Graph data is sparse and irregular</li>
+</ul>
 </section></section>
 <section>
-<section id="linear-algebra-for-parallel-shortest-paths" class="title-slide slide level1 center">
-<h1>Linear algebra for parallel shortest paths</h1>
+<section id="sparse-linear-algebra-for-parallel-shortest-paths" class="title-slide slide level1 center">
+<h1>Sparse linear algebra for parallel shortest paths</h1>
 
 </section>
 <section id="graphs-are-matrices" class="slide level2">
 <h2>Graphs are matrices</h2>
+<div class="columns">
+<div class="column">
+<p>Adjacency matrix:</p>
+<p><span class="math display">\[
+A_{u, v} = \begin{cases}
+1 &amp; \text{if $v \in N(u)$} \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+</div><div class="column">
+<p>Incidence matrix: <span class="math display">\[
+B_{e, v} = \begin{cases}
+1 &amp; \text{if $e = \{u, v\}$} \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+</div></div>
 </section>
 <section id="neighborhoods-are-multiplications" class="slide level2">
 <h2>Neighborhoods are multiplications</h2>
-</section>
+
+<img data-src="img/graphblas.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="the-graphblas-standard" class="slide level2">
 <h2>The GraphBLAS standard</h2>
+<ul>
+<li>Goal: express graph primitives in the language of linear algebra (same as BLAS).</li>
+<li>Uses custom semirings for algebraic operations.</li>
+<li>Allows easy expression of sophisticated algorithms like Bellman-Ford.</li>
+</ul>
 </section>
-<section id="sparse-matrix-formats" class="slide level2">
-<h2>Sparse matrix formats</h2>
+<section id="sparse-matrix-formats---coo-csr" class="slide level2">
+<h2>Sparse matrix formats - COO, CSR</h2>
+<p><img data-src="img/spmv_coo.png" class="quarto-figure quarto-figure-center"> <img data-src="img/spmv_csr.png" class="quarto-figure quarto-figure-center"></p>
 </section>
-<section id="sparse-mat-vec-product-on-gpu" class="slide level2">
-<h2>Sparse mat-vec product on GPU</h2>
-</section></section>
+<section id="matrix-vector-products-on-gpu" class="slide level2">
+<h2>Matrix-vector products on GPU</h2>
+<p><img data-src="img/spmv_coo2.png" class="quarto-figure quarto-figure-center"> <img data-src="img/spmv_csr2.png" class="quarto-figure quarto-figure-center"></p>
+</section>
+<section id="better-formats-ell" class="slide level2">
+<h2>Better formats? ELL</h2>
+
+<img data-src="img/spmv_ell.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="better-formats-ell-2" class="slide level2">
+<h2>Better formats? ELL (2)</h2>
+
+<img data-src="img/spmv_ell2.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="even-better-formats" class="slide level2">
+<h2>Even better formats?</h2>
+<p>Adapt to the data at hand!</p>
+
+<img data-src="img/spmv_hybrid.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
 <section>
 <section id="preprocessing-for-parallel-shortest-paths" class="title-slide slide level1 center">
 <h1>Preprocessing for parallel shortest paths</h1>
@@ -219,42 +341,147 @@ Guillaume Dalle (ENPC)
 </section>
 <section id="one-graph-many-queries" class="slide level2">
 <h2>One graph, many queries</h2>
-</section>
+
+<img data-src="img/preprocessing.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="contraction-hierarchies" class="slide level2">
 <h2>Contraction hierarchies</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ch.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cch.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="phast" class="slide level2">
 <h2>PHAST</h2>
+<ul>
+<li>Tricks to speed up contraction hierarchies:
+<ul>
+<li>Reduce problem to directed acyclic graph</li>
+<li>Reorder vertices to improve memory locality</li>
+</ul></li>
+<li>Tricks to run it on GPU:
+<ul>
+<li>Process topological levels in parallel</li>
+<li>Process several shortest path trees at once</li>
+</ul></li>
+</ul>
 </section>
 <section id="customizable-contraction-hierarchies" class="slide level2">
 <h2>Customizable contraction hierarchies</h2>
+<ul>
+<li>Tricks to update the contraction hierarchy when weights change</li>
+<li>Contract vertices in a weight-agnostic way</li>
+</ul>
 </section>
-<section id="other-types-of-networks" class="slide level2">
-<h2>Other types of networks</h2>
+<section id="other-settings" class="slide level2">
+<h2>Other settings</h2>
+<ul>
+<li>Railway networks</li>
+<li>Multimodal city networks</li>
+<li>Time-dependent networks</li>
+</ul>
 </section></section>
 <section>
 <section id="challenges-ahead" class="title-slide slide level1 center">
 <h1>Challenges ahead</h1>
 
 </section>
-<section id="algorithmic-tradeoffs" class="slide level2">
-<h2>Algorithmic tradeoffs</h2>
+<section id="algorithmic-decisions" class="slide level2">
+<h2>Algorithmic decisions</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Preprocessing time vs query time</li>
+<li>Theoretical complexity doesn’t tell the whole story</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/pdlp.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="hardware-agnostic-code" class="slide level2">
 <h2>Hardware-agnostic code</h2>
+<ul>
+<li>How to run on every platform?</li>
+<li>Write portable “kernels” with <a href="https://github.com/JuliaGPU/KernelAbstractions.jl">KernelAbstractions.jl</a></li>
+<li>Combine CPU and GPU</li>
+</ul>
 </section>
 <section id="role-of-llms" class="slide level2">
 <h2>Role of LLMs</h2>
+<ul>
+<li>Easier to write GPU kernels or implement algorithms from papers</li>
+<li>Code generation is no longer a bottleneck</li>
+<li>Ensuring correctness is the new frontier</li>
+</ul>
 </section>
 <section id="software-funding-and-maintenance" class="slide level2">
 <h2>Software funding and maintenance</h2>
+<ul>
+<li>Research software developers are more relevant than ever</li>
+<li>Requires mathematical and computer science expertise</li>
+<li>Undervalued activity in our research ecosystem</li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-applegatePracticalLargeScaleLinear2021" class="csl-entry" role="listitem">
+Applegate, David, Mateo Diaz Diaz, Oliver Hinder, et al. 2021. <span>“Practical <span>Large-Scale Linear Programming</span> Using <span>Primal-Dual Hybrid Gradient</span>.”</span> <em>Thirty-<span>Fifth Conference</span> on <span>Neural Information Processing Systems</span></em>, May. <a href="https://openreview.net/forum?id=_eXwwWOyqT_">https://openreview.net/forum?id=_eXwwWOyqT_</a>.
+</div>
+<div id="ref-bastRoutePlanningTransportation2016" class="csl-entry" role="listitem">
+Bast, Hannah, Daniel Delling, Andrew Goldberg, et al. 2016. <span>“Route <span>Planning</span> in <span>Transportation Networks</span>.”</span> In <em>Algorithm <span>Engineering</span>: <span>Selected Results</span> and <span>Surveys</span></em>, edited by Lasse Kliemann and Peter Sanders. Lecture <span>Notes</span> in <span>Computer Science</span>. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-49487-6_2">https://doi.org/10.1007/978-3-319-49487-6_2</a>.
+</div>
+<div id="ref-beckGentleIncompleteIntroduction2021" class="csl-entry" role="listitem">
+Beck, Yasmine, and Martin Schmidt. 2021. <em>A <span>Gentle</span> and <span>Incomplete Introduction</span> to <span>Bilevel Optimization</span></em>. No. 17182. Optimization Online. <a href="https://optimization-online.org/?p=17182">https://optimization-online.org/?p=17182</a>.
+</div>
+<div id="ref-dellingPHASTHardwareacceleratedShortest2013" class="csl-entry" role="listitem">
+Delling, Daniel, Andrew V. Goldberg, Andreas Nowatzyk, and Renato F. Werneck. 2013. <span>“<span>PHAST</span>: <span class="nocase">Hardware-accelerated</span> Shortest Path Trees.”</span> <em>Journal of Parallel and Distributed Computing</em>, Best <span>Papers</span>: <span>International Parallel</span> and <span>Distributed Processing Symposium</span> (<span>IPDPS</span>) 2010, 2011 and 2012, vol. 73 (7): 940–52. <a href="https://doi.org/10.1016/j.jpdc.2012.02.007">https://doi.org/10.1016/j.jpdc.2012.02.007</a>.
+</div>
+<div id="ref-dibbeltCustomizableContractionHierarchies2016" class="csl-entry" role="listitem">
+Dibbelt, Julian, Ben Strasser, and Dorothea Wagner. 2016. <span>“Customizable <span>Contraction Hierarchies</span>.”</span> <em>ACM J. Exp. Algorithmics</em> 21 (April): 1.5:1–49. <a href="https://doi.org/10.1145/2886843">https://doi.org/10.1145/2886843</a>.
+</div>
+<div id="ref-geisbergerContractionHierarchiesFaster2008" class="csl-entry" role="listitem">
+Geisberger, Robert, Peter Sanders, Dominik Schultes, and Daniel Delling. 2008. <span>“Contraction <span>Hierarchies</span>: <span>Faster</span> and <span>Simpler Hierarchical Routing</span> in <span>Road Networks</span>.”</span> In <em>Experimental <span>Algorithms</span></em>, edited by Catherine C. McGeoch. Springer. <a href="https://doi.org/10.1007/978-3-540-68552-4_24">https://doi.org/10.1007/978-3-540-68552-4_24</a>.
+</div>
+<div id="ref-hwuProgrammingMassivelyParallel2022" class="csl-entry" role="listitem">
+Hwu, Wen-mei W., David B. Kirk, and Izzat El Hajj. 2022. <em>Programming <span>Massively Parallel Processors</span>: <span class="nocase">A Hands-on Approach</span></em>. Morgan Kaufmann.
+</div>
+<div id="ref-kepnerGraphAlgorithmsLanguage2011" class="csl-entry" role="listitem">
+Kepner, Jeremy, and John Gilbert. 2011. <em>Graph <span>Algorithms</span> in the <span>Language</span> of <span>Linear Algebra</span></em>. SIAM.
+</div>
+<div id="ref-luCuPDLPjlGPUImplementation2025" class="csl-entry" role="listitem">
+Lu, Haihao, and Jinwen Yang. 2025. <span>“<span class="nocase">cuPDLP</span>.jl: <span>A GPU Implementation</span> of <span>Restarted Primal-Dual Hybrid Gradient</span> for <span>Linear Programming</span> in <span>Julia</span>.”</span> <em>Operations Research</em> 73 (6): 3440–52. <a href="https://doi.org/10.1287/opre.2024.1069">https://doi.org/10.1287/opre.2024.1069</a>.
+</div>
+<div id="ref-mandiDecisionFocusedLearningFoundations2024" class="csl-entry" role="listitem">
+Mandi, Jayanta, James Kotary, Senne Berden, et al. 2024. <span>“Decision-<span>Focused Learning</span>: <span>Foundations</span>, <span>State</span> of the <span>Art</span>, <span>Benchmark</span> and <span>Future Opportunities</span>.”</span> <em>Journal of Artificial Intelligence Research</em> 80 (August): 1623–701. <a href="https://doi.org/10.1613/jair.1.15320">https://doi.org/10.1613/jair.1.15320</a>.
+</div>
+<div id="ref-mohantyFlatlandRLMultiAgentReinforcement2020" class="csl-entry" role="listitem">
+Mohanty, Sharada, Erik Nygren, Florian Laurent, et al. 2020. <em>Flatland-<span>RL</span> : <span>Multi-Agent Reinforcement Learning</span> on <span>Trains</span></em>. <a href="http://arxiv.org/abs/2012.05893">http://arxiv.org/abs/2012.05893</a>.
+</div>
+<div id="ref-w.axhausenMultiAgentTransportSimulation2016" class="csl-entry" role="listitem">
+W. Axhausen, Kay, Andreas Horni, and Kai Nagel, eds. 2016. <em>The <span>Multi-Agent Transport Simulation MATSim</span></em>. Ubiquity Press. <a href="https://doi.org/10.5334/baw">https://doi.org/10.5334/baw</a>.
+</div>
+</div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Accelerating graph algorithms</p>
+
 </div>
 </div></div>
 
@@ -440,7 +667,7 @@ Guillaume Dalle (ENPC)
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

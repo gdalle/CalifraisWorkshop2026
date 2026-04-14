@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html#a-little-about-me",
+    "href": "index.html#a-little-about-me",
+    "title": "Accelerating graph algorithms",
+    "section": "A little about me",
+    "text": "A little about me\n\n\nCV\n\n2019-2022: PhD at ENPC\n2022: visiting student at MIT\n2023-2024: postdoc at EPFL\n2025-: researcher at ENPC\n\n\nResearch topics\n\nOperations research\nMachine learning\nHigh-performance computing\n\n\n\nSlides available at gdalle.github.io/CalifraisWorkshop2026"
+  },
+  {
     "objectID": "index.html#multi-agent-pathfinding",
     "href": "index.html#multi-agent-pathfinding",
     "title": "Accelerating graph algorithms",
@@ -25,49 +32,56 @@
     "href": "index.html#bilevel-programming",
     "title": "Accelerating graph algorithms",
     "section": "Bilevel programming",
-    "text": "Bilevel programming"
+    "text": "Bilevel programming\n\\[\n\\begin{aligned}\n\\min_{x, y} ~ & F(x, y) \\\\\n\\mathrm{s.t.} ~ & G(x, y) \\geq 0 \\\\\n& y \\in \\arg\\min_y ~\\{f(x, y): g(x, y) \\geq 0\\}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "index.html#common-aspects-of-subroutines",
     "href": "index.html#common-aspects-of-subroutines",
     "title": "Accelerating graph algorithms",
     "section": "Common aspects of subroutines",
-    "text": "Common aspects of subroutines"
+    "text": "Common aspects of subroutines\n\nExecuted many times in parallel\nExecuted many times in a sequence\nExecuted many many times on the same instance\nHigh precision is not crucial"
   },
   {
-    "objectID": "index.html#smarter-execution",
-    "href": "index.html#smarter-execution",
+    "objectID": "index.html#potential-for-parallelism",
+    "href": "index.html#potential-for-parallelism",
     "title": "Accelerating graph algorithms",
-    "section": "Smarter execution",
-    "text": "Smarter execution"
+    "section": "Potential for parallelism",
+    "text": "Potential for parallelism"
   },
   {
     "objectID": "index.html#bellman-ford",
     "href": "index.html#bellman-ford",
     "title": "Accelerating graph algorithms",
     "section": "Bellman-Ford",
-    "text": "Bellman-Ford"
+    "text": "Bellman-Ford\n\nDynamic programming: update the distance estimate from \\(s\\) to \\(v\\) using at most \\(k\\) steps \\[\nd_k(s, v) = \\min_{u \\in N(v)} \\{d_{k-1}(s, u) + w(u, v)\\}\n\\]\nComplexity: \\(O(E V)\\) (slow!)."
   },
   {
     "objectID": "index.html#dijkstra",
     "href": "index.html#dijkstra",
     "title": "Accelerating graph algorithms",
     "section": "Dijkstra",
-    "text": "Dijkstra"
+    "text": "Dijkstra\n\nDynamic programming: update the distance estimate from \\(s\\) to \\(v\\) from closest to furthest vertex.\nUses a priority queue (or heap) to keep track.\nComplexity: \\(O(E + V \\log V)\\) (fast!)"
+  },
+  {
+    "objectID": "index.html#a",
+    "href": "index.html#a",
+    "title": "Accelerating graph algorithms",
+    "section": "A*",
+    "text": "A*\n\nSame as Dijkstra, but change the priorization: from most promising to least promising vertex.\nComplexity: depends on the chosen heuristic."
   },
   {
     "objectID": "index.html#good-on-cpu-bad-on-gpu",
     "href": "index.html#good-on-cpu-bad-on-gpu",
     "title": "Accelerating graph algorithms",
     "section": "Good on CPU, bad on GPU",
-    "text": "Good on CPU, bad on GPU"
+    "text": "Good on CPU, bad on GPU\n\nDijkstra and A* are heavily sequential\nThey make use of complex storage structures\nGraph data is sparse and irregular"
   },
   {
     "objectID": "index.html#graphs-are-matrices",
     "href": "index.html#graphs-are-matrices",
     "title": "Accelerating graph algorithms",
     "section": "Graphs are matrices",
-    "text": "Graphs are matrices"
+    "text": "Graphs are matrices\n\n\nAdjacency matrix:\n\\[\nA_{u, v} = \\begin{cases}\n1 & \\text{if $v \\in N(u)$} \\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\]\n\nIncidence matrix: \\[\nB_{e, v} = \\begin{cases}\n1 & \\text{if $e = \\{u, v\\}$} \\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\]"
   },
   {
     "objectID": "index.html#neighborhoods-are-multiplications",
@@ -81,21 +95,42 @@
     "href": "index.html#the-graphblas-standard",
     "title": "Accelerating graph algorithms",
     "section": "The GraphBLAS standard",
-    "text": "The GraphBLAS standard"
+    "text": "The GraphBLAS standard\n\nGoal: express graph primitives in the language of linear algebra (same as BLAS).\nUses custom semirings for algebraic operations.\nAllows easy expression of sophisticated algorithms like Bellman-Ford."
   },
   {
-    "objectID": "index.html#sparse-matrix-formats",
-    "href": "index.html#sparse-matrix-formats",
+    "objectID": "index.html#sparse-matrix-formats---coo-csr",
+    "href": "index.html#sparse-matrix-formats---coo-csr",
     "title": "Accelerating graph algorithms",
-    "section": "Sparse matrix formats",
-    "text": "Sparse matrix formats"
+    "section": "Sparse matrix formats - COO, CSR",
+    "text": "Sparse matrix formats - COO, CSR"
   },
   {
-    "objectID": "index.html#sparse-mat-vec-product-on-gpu",
-    "href": "index.html#sparse-mat-vec-product-on-gpu",
+    "objectID": "index.html#matrix-vector-products-on-gpu",
+    "href": "index.html#matrix-vector-products-on-gpu",
     "title": "Accelerating graph algorithms",
-    "section": "Sparse mat-vec product on GPU",
-    "text": "Sparse mat-vec product on GPU"
+    "section": "Matrix-vector products on GPU",
+    "text": "Matrix-vector products on GPU"
+  },
+  {
+    "objectID": "index.html#better-formats-ell",
+    "href": "index.html#better-formats-ell",
+    "title": "Accelerating graph algorithms",
+    "section": "Better formats? ELL",
+    "text": "Better formats? ELL"
+  },
+  {
+    "objectID": "index.html#better-formats-ell-2",
+    "href": "index.html#better-formats-ell-2",
+    "title": "Accelerating graph algorithms",
+    "section": "Better formats? ELL (2)",
+    "text": "Better formats? ELL (2)"
+  },
+  {
+    "objectID": "index.html#even-better-formats",
+    "href": "index.html#even-better-formats",
+    "title": "Accelerating graph algorithms",
+    "section": "Even better formats?",
+    "text": "Even better formats?\nAdapt to the data at hand!"
   },
   {
     "objectID": "index.html#one-graph-many-queries",
@@ -116,48 +151,55 @@
     "href": "index.html#phast",
     "title": "Accelerating graph algorithms",
     "section": "PHAST",
-    "text": "PHAST"
+    "text": "PHAST\n\nTricks to speed up contraction hierarchies:\n\nReduce problem to directed acyclic graph\nReorder vertices to improve memory locality\n\nTricks to run it on GPU:\n\nProcess topological levels in parallel\nProcess several shortest path trees at once"
   },
   {
     "objectID": "index.html#customizable-contraction-hierarchies",
     "href": "index.html#customizable-contraction-hierarchies",
     "title": "Accelerating graph algorithms",
     "section": "Customizable contraction hierarchies",
-    "text": "Customizable contraction hierarchies"
+    "text": "Customizable contraction hierarchies\n\nTricks to update the contraction hierarchy when weights change\nContract vertices in a weight-agnostic way"
   },
   {
-    "objectID": "index.html#other-types-of-networks",
-    "href": "index.html#other-types-of-networks",
+    "objectID": "index.html#other-settings",
+    "href": "index.html#other-settings",
     "title": "Accelerating graph algorithms",
-    "section": "Other types of networks",
-    "text": "Other types of networks"
+    "section": "Other settings",
+    "text": "Other settings\n\nRailway networks\nMultimodal city networks\nTime-dependent networks"
   },
   {
-    "objectID": "index.html#algorithmic-tradeoffs",
-    "href": "index.html#algorithmic-tradeoffs",
+    "objectID": "index.html#algorithmic-decisions",
+    "href": "index.html#algorithmic-decisions",
     "title": "Accelerating graph algorithms",
-    "section": "Algorithmic tradeoffs",
-    "text": "Algorithmic tradeoffs"
+    "section": "Algorithmic decisions",
+    "text": "Algorithmic decisions\n\n\n\nPreprocessing time vs query time\nTheoretical complexity doesn’t tell the whole story"
   },
   {
     "objectID": "index.html#hardware-agnostic-code",
     "href": "index.html#hardware-agnostic-code",
     "title": "Accelerating graph algorithms",
     "section": "Hardware-agnostic code",
-    "text": "Hardware-agnostic code"
+    "text": "Hardware-agnostic code\n\nHow to run on every platform?\nWrite portable “kernels” with KernelAbstractions.jl\nCombine CPU and GPU"
   },
   {
     "objectID": "index.html#role-of-llms",
     "href": "index.html#role-of-llms",
     "title": "Accelerating graph algorithms",
     "section": "Role of LLMs",
-    "text": "Role of LLMs"
+    "text": "Role of LLMs\n\nEasier to write GPU kernels or implement algorithms from papers\nCode generation is no longer a bottleneck\nEnsuring correctness is the new frontier"
   },
   {
     "objectID": "index.html#software-funding-and-maintenance",
     "href": "index.html#software-funding-and-maintenance",
     "title": "Accelerating graph algorithms",
     "section": "Software funding and maintenance",
-    "text": "Software funding and maintenance"
+    "text": "Software funding and maintenance\n\nResearch software developers are more relevant than ever\nRequires mathematical and computer science expertise\nUndervalued activity in our research ecosystem"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Accelerating graph algorithms",
+    "section": "References",
+    "text": "References\n\n\nApplegate, David, Mateo Diaz Diaz, Oliver Hinder, et al. 2021. “Practical Large-Scale Linear Programming Using Primal-Dual Hybrid Gradient.” Thirty-Fifth Conference on Neural Information Processing Systems, May. https://openreview.net/forum?id=_eXwwWOyqT_.\n\n\nBast, Hannah, Daniel Delling, Andrew Goldberg, et al. 2016. “Route Planning in Transportation Networks.” In Algorithm Engineering: Selected Results and Surveys, edited by Lasse Kliemann and Peter Sanders. Lecture Notes in Computer Science. Springer International Publishing. https://doi.org/10.1007/978-3-319-49487-6_2.\n\n\nBeck, Yasmine, and Martin Schmidt. 2021. A Gentle and Incomplete Introduction to Bilevel Optimization. No. 17182. Optimization Online. https://optimization-online.org/?p=17182.\n\n\nDelling, Daniel, Andrew V. Goldberg, Andreas Nowatzyk, and Renato F. Werneck. 2013. “PHAST: Hardware-accelerated Shortest Path Trees.” Journal of Parallel and Distributed Computing, Best Papers: International Parallel and Distributed Processing Symposium (IPDPS) 2010, 2011 and 2012, vol. 73 (7): 940–52. https://doi.org/10.1016/j.jpdc.2012.02.007.\n\n\nDibbelt, Julian, Ben Strasser, and Dorothea Wagner. 2016. “Customizable Contraction Hierarchies.” ACM J. Exp. Algorithmics 21 (April): 1.5:1–49. https://doi.org/10.1145/2886843.\n\n\nGeisberger, Robert, Peter Sanders, Dominik Schultes, and Daniel Delling. 2008. “Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks.” In Experimental Algorithms, edited by Catherine C. McGeoch. Springer. https://doi.org/10.1007/978-3-540-68552-4_24.\n\n\nHwu, Wen-mei W., David B. Kirk, and Izzat El Hajj. 2022. Programming Massively Parallel Processors: A Hands-on Approach. Morgan Kaufmann.\n\n\nKepner, Jeremy, and John Gilbert. 2011. Graph Algorithms in the Language of Linear Algebra. SIAM.\n\n\nLu, Haihao, and Jinwen Yang. 2025. “cuPDLP.jl: A GPU Implementation of Restarted Primal-Dual Hybrid Gradient for Linear Programming in Julia.” Operations Research 73 (6): 3440–52. https://doi.org/10.1287/opre.2024.1069.\n\n\nMandi, Jayanta, James Kotary, Senne Berden, et al. 2024. “Decision-Focused Learning: Foundations, State of the Art, Benchmark and Future Opportunities.” Journal of Artificial Intelligence Research 80 (August): 1623–701. https://doi.org/10.1613/jair.1.15320.\n\n\nMohanty, Sharada, Erik Nygren, Florian Laurent, et al. 2020. Flatland-RL : Multi-Agent Reinforcement Learning on Trains. http://arxiv.org/abs/2012.05893.\n\n\nW. Axhausen, Kay, Andreas Horni, and Kai Nagel, eds. 2016. The Multi-Agent Transport Simulation MATSim. Ubiquity Press. https://doi.org/10.5334/baw."
   }
 ]
