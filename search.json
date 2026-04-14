@@ -4,7 +4,21 @@
     "href": "index.html#a-little-about-me",
     "title": "Accelerating graph algorithms",
     "section": "A little about me",
-    "text": "A little about me\n\n\nCV\n\n2019-2022: PhD at ENPC\n2022: visiting student at MIT\n2023-2024: postdoc at EPFL\n2025-: researcher at ENPC\n\n\nResearch topics\n\nOperations research\nMachine learning\nHigh-performance computing\n\n\n\nSlides available at gdalle.github.io/CalifraisWorkshop2026"
+    "text": "A little about me\nWebsite: gdalle.github.io\n\n\nCV\n\n2019-2022: PhD at ENPC\n2022: visiting student at MIT\n2023-2024: postdoc at EPFL\n2025-: researcher at ENPC\n\n\nResearch topics\n\nOperations research\nMachine learning\nHigh-performance computing"
+  },
+  {
+    "objectID": "index.html#acme-project",
+    "href": "index.html#acme-project",
+    "title": "Accelerating graph algorithms",
+    "section": "ACME project",
+    "text": "ACME project\n\nApprovisionnement Collaboratif Multimodal Ecologique: unlocking horizontal collaboration in the supply chain\n3 disciplines: mathematics, computer science, economics\n4 universities (ENPC, TSE, Inria, IMB) with budget to recruit 6 PhD students, 2 postdocs, 2 research engineers\nIndustrial partners: Califrais, AI Cargo Foundation, Renault and others"
+  },
+  {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": "Accelerating graph algorithms",
+    "section": "Slides",
+    "text": "Slides\nAvailable at gdalle.github.io/CalifraisWorkshop2026"
   },
   {
     "objectID": "index.html#multi-agent-pathfinding",
