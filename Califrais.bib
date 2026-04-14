@@ -1,0 +1,170 @@
+@inproceedings{applegatePracticalLargeScaleLinear2021,
+  title = {Practical {{Large-Scale Linear Programming}} Using {{Primal-Dual Hybrid Gradient}}},
+  booktitle = {Thirty-{{Fifth Conference}} on {{Neural Information Processing Systems}}},
+  author = {Applegate, David and Diaz, Mateo Diaz and Hinder, Oliver and Lu, Haihao and Lubin, Miles and O'Donoghue, Brendan and Schudy, Warren},
+  year = 2021,
+  month = may,
+  url = {https://openreview.net/forum?id=_eXwwWOyqT_},
+  abstract = {We develop a practically effective first-order method for solving linear programming problems to high accuracy.},
+  langid = {english}
+}
+
+@incollection{bastRoutePlanningTransportation2016,
+  title = {Route {{Planning}} in {{Transportation Networks}}},
+  booktitle = {Algorithm {{Engineering}}: {{Selected Results}} and {{Surveys}}},
+  author = {Bast, Hannah and Delling, Daniel and Goldberg, Andrew and {M{\"u}ller-Hannemann}, Matthias and Pajor, Thomas and Sanders, Peter and Wagner, Dorothea and Werneck, Renato F.},
+  editor = {Kliemann, Lasse and Sanders, Peter},
+  year = 2016,
+  series = {Lecture {{Notes}} in {{Computer Science}}},
+  pages = {19--80},
+  publisher = {Springer International Publishing},
+  address = {Cham},
+  doi = {10.1007/978-3-319-49487-6_2},
+  url = {https://doi.org/10.1007/978-3-319-49487-6_2},
+  abstract = {We survey recent advances in algorithms for route planning in transportation networks. For road networks, we show that one can compute driving directions in milliseconds or less even at continental scale. A variety of techniques provide different trade-offs between preprocessing effort, space requirements, and query time. Some algorithms can answer queries in a fraction of a microsecond, while others can deal efficiently with real-time traffic. Journey planning on public transportation systems, although conceptually similar, is a significantly harder problem due to its inherent time-dependent and multicriteria nature. Although exact algorithms are fast enough for interactive queries on metropolitan transit systems, dealing with continent-sized instances requires simplifications or heavy preprocessing. The multimodal route planning problem, which seeks journeys combining schedule-based transportation (buses, trains) with unrestricted modes (walking, driving), is even harder, relying on approximate solutions even for metropolitan inputs.},
+  isbn = {978-3-319-49487-6},
+  langid = {english}
+}
+
+@misc{beckGentleIncompleteIntroduction2021,
+  title = {A {{Gentle}} and {{Incomplete Introduction}} to {{Bilevel Optimization}}},
+  author = {Beck, Yasmine and Schmidt, Martin},
+  year = 2021,
+  month = jun,
+  number = {17182},
+  eprint = {17182},
+  publisher = {Optimization Online},
+  url = {https://optimization-online.org/?p=17182},
+  archiveprefix = {Optimization Online},
+  langid = {american}
+}
+
+@article{dellingPHASTHardwareacceleratedShortest2013,
+  title = {{{PHAST}}: {{Hardware-accelerated}} Shortest Path Trees},
+  shorttitle = {{{PHAST}}},
+  author = {Delling, Daniel and Goldberg, Andrew V. and Nowatzyk, Andreas and Werneck, Renato F.},
+  year = 2013,
+  month = jul,
+  journal = {Journal of Parallel and Distributed Computing},
+  series = {Best {{Papers}}: {{International Parallel}} and {{Distributed Processing Symposium}} ({{IPDPS}}) 2010, 2011 and 2012},
+  volume = {73},
+  number = {7},
+  pages = {940--952},
+  issn = {0743-7315},
+  doi = {10.1016/j.jpdc.2012.02.007},
+  url = {https://www.sciencedirect.com/science/article/pii/S074373151200041X},
+  abstract = {We present a novel algorithm to solve the non-negative single-source shortest path problem on road networks and graphs with low highway dimension. After a quick preprocessing phase, we can compute all distances from a given source in the graph with essentially a linear sweep over all vertices. Because this sweep is independent of the source, we are able to reorder vertices in advance to exploit locality. Moreover, our algorithm takes advantage of features of modern CPU architectures, such as SSE and multiple cores. Compared to Dijkstra's algorithm, our method needs fewer operations, has better locality, and is better able to exploit parallelism at multi-core and instruction levels. We gain additional speedup when implementing our algorithm on a GPU, where it is up to three orders of magnitude faster than Dijkstra's algorithm on a high-end CPU. This makes applications based on all-pairs shortest-paths practical for continental-sized road networks. Several algorithms, such as computing the graph diameter, arc flags, or exact reaches, can be greatly accelerated by our method.}
+}
+
+@article{dibbeltCustomizableContractionHierarchies2016,
+  title = {Customizable {{Contraction Hierarchies}}},
+  author = {Dibbelt, Julian and Strasser, Ben and Wagner, Dorothea},
+  year = 2016,
+  month = apr,
+  journal = {ACM J. Exp. Algorithmics},
+  volume = {21},
+  pages = {1.5:1--1.5:49},
+  issn = {1084-6654},
+  doi = {10.1145/2886843},
+  url = {https://doi.org/10.1145/2886843},
+  abstract = {We consider the problem of quickly computing shortest paths in weighted graphs. Often, this is achieved in two phases: (1) derive auxiliary data in an expensive preprocessing phase, and (2) use this auxiliary data to speed up the query phase. By adding a fast weight-customization phase, we extend Contraction Hierarchies to support a three-phase workflow. The expensive preprocessing is split into a phase exploiting solely the unweighted topology of the graph and a lightweight phase that adapts the auxiliary data to a specific weight. We achieve this by basing our Customizable Contraction Hierarchies (CCHs) on nested dissection orders. We provide an in-depth experimental analysis on large road and game maps showing that CCHs are a very practicable solution in scenarios where edge weights often change.}
+}
+
+@inproceedings{geisbergerContractionHierarchiesFaster2008,
+  title = {Contraction {{Hierarchies}}: {{Faster}} and {{Simpler Hierarchical Routing}} in {{Road Networks}}},
+  shorttitle = {Contraction {{Hierarchies}}},
+  booktitle = {Experimental {{Algorithms}}},
+  author = {Geisberger, Robert and Sanders, Peter and Schultes, Dominik and Delling, Daniel},
+  editor = {McGeoch, Catherine C.},
+  year = 2008,
+  pages = {319--333},
+  publisher = {Springer},
+  address = {Berlin, Heidelberg},
+  doi = {10.1007/978-3-540-68552-4_24},
+  abstract = {We present a route planning technique solely based on the concept of node contraction. The nodes are first ordered by `importance'. A hierarchy is then generated by iteratively contracting the least important node. Contracting a node v means replacing shortest paths going through v by shortcuts. We obtain a hierarchical query algorithm using bidirectional shortest-path search. The forward search uses only edges leading to more important nodes and the backward search uses only edges coming from more important nodes. For fastest routes in road networks, the graph remains very sparse throughout the contraction process using rather simple heuristics for ordering the nodes. We have five times lower query times than the best previous hierarchical Dijkstra-based speedup techniques and a negative space overhead, i.e., the data structure for distance computation needs less space than the input graph. CHs can be combined with many other route planning techniques, leading to improved performance for many-to-many routing, transit-node routing, goal-directed routing or mobile and dynamic scenarios.},
+  isbn = {978-3-540-68552-4},
+  langid = {english}
+}
+
+@book{hwuProgrammingMassivelyParallel2022,
+  title = {Programming {{Massively Parallel Processors}}: {{A Hands-on Approach}}},
+  shorttitle = {Programming {{Massively Parallel Processors}}},
+  author = {Hwu, Wen-mei W. and Kirk, David B. and Hajj, Izzat El},
+  year = 2022,
+  month = may,
+  publisher = {Morgan Kaufmann},
+  abstract = {Programming Massively Parallel Processors: A Hands-on Approach shows both students and professionals alike the basic concepts of parallel programming and GPU architecture. Concise, intuitive, and practical, it is based on years of road-testing in the authors' own parallel computing courses. Various techniques for constructing and optimizing parallel programs are explored in detail, while case studies demonstrate the development process, which begins with computational thinking and ends with effective and efficient parallel programs. The new edition includes updated coverage of CUDA, including the newer libraries such as CuDNN. New chapters on frequently used parallel patterns have been added, and case studies have been updated to reflect current industry practices. - Parallel Patterns Introduces new chapters on frequently used parallel patterns (stencil, reduction, sorting) and major improvements to previous chapters (convolution, histogram, sparse matrices, graph traversal, deep learning) - Ampere Includes a new chapter focused on GPU architecture and draws examples from recent architecture generations, including Ampere - Systematic Approach Incorporates major improvements to abstract discussions of problem decomposition strategies and performance considerations, with a new optimization checklist},
+  googlebooks = {7H9dEAAAQBAJ},
+  isbn = {978-0-323-98463-8},
+  langid = {english}
+}
+
+@book{kepnerGraphAlgorithmsLanguage2011,
+  title = {Graph {{Algorithms}} in the {{Language}} of {{Linear Algebra}}},
+  author = {Kepner, Jeremy and Gilbert, John},
+  year = 2011,
+  month = aug,
+  publisher = {SIAM},
+  abstract = {The field of graph algorithms has become one of the pillars of theoretical computer science, informing research in such diverse areas as combinatorial optimization, complexity theory and topology. To improve the computational performance of graph algorithms, researchers have proposed a shift to a parallel computing paradigm. This book addresses the challenges of implementing parallel graph algorithms by exploiting the well-known duality between a canonical representation of graphs as abstract collections of vertices and edges and a sparse adjacency matrix representation. This linear algebraic approach is widely accessible to scientists and engineers who may not be formally trained in computer science. The authors show how to leverage existing parallel matrix computation techniques and the large amount of software infrastructure that exists for these computations to implement efficient and scalable parallel graph algorithms. The benefits of this approach are reduced algorithmic complexity, ease of implementation and improved performance.},
+  googlebooks = {JBXDc83jRBwC},
+  isbn = {978-0-89871-990-1},
+  langid = {english}
+}
+
+@article{luCuPDLPjlGPUImplementation2025,
+  title = {{{cuPDLP}}.Jl: {{A GPU Implementation}} of {{Restarted Primal-Dual Hybrid Gradient}} for {{Linear Programming}} in {{Julia}}},
+  shorttitle = {{{cuPDLP}}.Jl},
+  author = {Lu, Haihao and Yang, Jinwen},
+  year = 2025,
+  month = nov,
+  journal = {Operations Research},
+  volume = {73},
+  number = {6},
+  pages = {3440--3452},
+  publisher = {INFORMS},
+  issn = {0030-364X},
+  doi = {10.1287/opre.2024.1069},
+  url = {https://pubsonline.informs.org/doi/abs/10.1287/opre.2024.1069},
+  abstract = {In this paper, we provide an affirmative answer to the long-standing question: Are GPUs useful in solving linear programming? We present cuPDLP.jl, a GPU implementation of restarted primal-dual hybrid gradient for solving linear programming (LP). We show that this prototype implementation in Julia has comparable numerical performance on standard LP benchmark sets to Gurobi, a highly optimized implementation of the simplex and interior-point methods. This demonstrates the power of using GPUs in linear programming, which, for the first time, showcases that GPUs and first-order methods can lead to performance comparable to state-of-the-art commercial optimization LP solvers on standard benchmark sets. Funding: This work was partially supported by the Air Force Office of Scientific Research [Grant FA9550-24-1-0051]. Supplemental Review: The empirical results in this paper were replicated. The code, data, and files required to reproduce the results were reviewed and are available at 10.1287/opre.2024.1069.cd. Supplemental Material: This article includes an online appendix, computer code and data supporting the study's findings, and replication files. All supplemental materials, including the code, data, and files required to reproduce the results, are available at 10.1287/opre.2024.1069.cd.}
+}
+
+@article{mandiDecisionFocusedLearningFoundations2024,
+  title = {Decision-{{Focused Learning}}: {{Foundations}}, {{State}} of the {{Art}}, {{Benchmark}} and {{Future Opportunities}}},
+  shorttitle = {Decision-{{Focused Learning}}},
+  author = {Mandi, Jayanta and Kotary, James and Berden, Senne and Mulamba, Maxime and Bucarey, Victor and Guns, Tias and Fioretto, Ferdinando},
+  year = 2024,
+  month = aug,
+  journal = {Journal of Artificial Intelligence Research},
+  volume = {80},
+  pages = {1623--1701},
+  issn = {1076-9757},
+  doi = {10.1613/jair.1.15320},
+  url = {https://www.jair.org/index.php/jair/article/view/15320},
+  abstract = {Decision-focused learning (DFL) is an emerging paradigm that integrates machine learning (ML) and constrained optimization to enhance decision quality by training ML models in an end-to-end system. This approach shows significant potential to revolutionize combinatorial decision-making in real-world applications that operate under uncertainty, where estimating unknown parameters within decision models is a major challenge. This paper presents a comprehensive review of DFL, providing an in-depth analysis of both gradient-based and gradient-free techniques used to combine ML and constrained optimization. It evaluates the strengths and limitations of these techniques and includes an extensive empirical evaluation of eleven methods across seven problems. The survey also offers insights into recent advancements and future research directions in DFL.},
+  copyright = {Copyright (c) 2024 Journal of Artificial Intelligence Research},
+  langid = {english}
+}
+
+@misc{mohantyFlatlandRLMultiAgentReinforcement2020,
+  title = {Flatland-{{RL}} : {{Multi-Agent Reinforcement Learning}} on {{Trains}}},
+  shorttitle = {Flatland-{{RL}}},
+  author = {Mohanty, Sharada and Nygren, Erik and Laurent, Florian and Schneider, Manuel and Scheller, Christian and Bhattacharya, Nilabha and Watson, Jeremy and Egli, Adrian and Eichenberger, Christian and Baumberger, Christian and Vienken, Gereon and Sturm, Irene and Sartoretti, Guillaume and Spigler, Giacomo},
+  year = 2020,
+  month = dec,
+  eprint = {2012.05893},
+  url = {http://arxiv.org/abs/2012.05893},
+  abstract = {Efficient automated scheduling of trains remains a major challenge for modern railway systems. The underlying vehicle rescheduling problem (VRSP) has been a major focus of Operations Research (OR) since decades. Traditional approaches use complex simulators to study VRSP, where experimenting with a broad range of novel ideas is time consuming and has a huge computational overhead. In this paper, we introduce a two-dimensional simplified grid environment called "Flatland" that allows for faster experimentation. Flatland does not only reduce the complexity of the full physical simulation, but also provides an easy-to-use interface to test novel approaches for the VRSP, such as Reinforcement Learning (RL) and Imitation Learning (IL). In order to probe the potential of Machine Learning (ML) research on Flatland, we (1) ran a first series of RL and IL experiments and (2) design and executed a public Benchmark at NeurIPS 2020 to engage a large community of researchers to work on this problem. Our own experimental results, on the one hand, demonstrate that ML has potential in solving the VRSP on Flatland. On the other hand, we identify key topics that need further research. Overall, the Flatland environment has proven to be a robust and valuable framework to investigate the VRSP for railway networks. Our experiments provide a good starting point for further research and for the participants of the NeurIPS 2020 Flatland Benchmark. All of these efforts together have the potential to have a substantial impact on shaping the mobility of the future.},
+  archiveprefix = {arXiv}
+}
+
+@book{w.axhausenMultiAgentTransportSimulation2016,
+  title = {The {{Multi-Agent Transport Simulation MATSim}}},
+  editor = {W. Axhausen, Kay and Horni, Andreas and Nagel, Kai},
+  year = 2016,
+  publisher = {Ubiquity Press},
+  doi = {10.5334/baw},
+  url = {https://library.oapen.org/handle/20.500.12657/32162},
+  abstract = {"The MATSim (Multi-Agent Transport Simulation) software project was started around 2006 with the goal of generating traffic and congestion patterns by following individual synthetic travelers through their daily or weekly activity programme. It has since then evolved from a collection of stand-alone C++ programs to an integrated Java-based framework which is publicly hosted, open-source available, automatically regression tested. It is currently used by about 40 groups throughout the world. This book takes stock of the current status. The first part of the book gives an introduction to the most important concepts, with the intention of enabling a potential user to set up and run basic simulations.The second part of the book describes how the basic functionality can be extended, for example by adding schedule-based public transit, electric or autonomous cars, paratransit, or within-day replanning. For each extension, the text provides pointers to the additional documentation and to the code base. It is also discussed how people with appropriate Java programming skills can write their own extensions, and plug them into the MATSim core.  The project has started from the basic idea that traffic is a consequence of human behavior, and thus humans and their behavior should be the starting point of all modelling, and with the intuition that when simulations with 100 million particles are possible in computational physics, then behavior-oriented simulations with 10 million travelers should be possible in travel behavior research. The initial implementations thus combined concepts from computational physics and complex adaptive systems with concepts from travel behavior research. The third part of the book looks at theoretical concepts that are able to describe important aspects of the simulation system; for example, under certain conditions the code becomes a Monte Carlo engine sampling from a discrete choice model. Another important aspect is the interpretation of the MATSim score as utility in the microeconomic sense, opening up a connection to benefit cost analysis.  Finally, the book collects use cases as they have been undertaken with MATSim. All current users of MATSim were invited to submit their work, and many followed with sometimes crisp and short and sometimes longer contributions, always with pointers to additional references.  We hope that the book will become an invitation to explore, to build and to extend agent-based modeling of travel behavior from the stable and well tested core of MATSim documented here."},
+  langid = {english},
+  annotation = {Accepted: 2016-12-31 23:55:55}
+}
