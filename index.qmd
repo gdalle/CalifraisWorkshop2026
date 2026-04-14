@@ -15,6 +15,8 @@ bibliography: Califrais.bib
 
 ## A little about me
 
+Website: [gdalle.github.io](https://gdalle.github.io/)
+
 ::: {.columns}
 
 ::: {.column}
@@ -34,9 +36,16 @@ bibliography: Califrais.bib
 
 :::
 
-::: footer
-Slides available at [gdalle.github.io/CalifraisWorkshop2026](https://gdalle.github.io/CalifraisWorkshop2026/)
-:::
+## ACME project
+
+- _Approvisionnement Collaboratif Multimodal Ecologique_: unlocking horizontal collaboration in the supply chain
+- 3 disciplines: mathematics, computer science, economics
+- 4 universities (ENPC, TSE, Inria, IMB) with budget to recruit 6 PhD students, 2 postdocs, 2 research engineers
+- Industrial partners: Califrais, AI Cargo Foundation, Renault and others
+
+## Slides
+
+Available at [gdalle.github.io/CalifraisWorkshop2026](https://gdalle.github.io/CalifraisWorkshop2026/)
 
 # Optimization as a subroutine
 
